@@ -4,6 +4,7 @@ interface CreateMenetrendDto {
   from: string;
   to: string;
   time: string;
+  start: string; // New field for departure time
 }
 
 interface MenetrendFormProps {
@@ -14,7 +15,8 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
   const [formData, setFormData] = useState<CreateMenetrendDto>({
     from: '',
     to: '',
-    time: ''
+    time: '',
+    start: '' // Initialize the new field
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +36,7 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
       // If successful, reload the menetrend list
       onReload();
       // Clear form data
-      setFormData({ from: '', to: '', time: '' });
+      setFormData({ from: '', to: '', time: '', start: '' });
     } catch (error) {
       console.error('Error adding new schedule:', error);
     }
@@ -61,7 +63,7 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
       <label>
         Honnan:
         <select name="from" value={formData.from} onChange={handleSelectChange}>
-            <option value=""/>
+          <option value=""/>
           <option value="Kerekerdő-felső">Kerekerdő-felső</option>
           <option value="Kerekerdő-alsó">Kerekerdő-alsó</option>
         </select>
@@ -70,9 +72,13 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
         Hová:
         <input type="text" name="to" value={formData.to} readOnly />
       </label>
-      <label >
+      <label className='m-5' >
         Mennyi idő:
         <input type="time" name="time" value={formData.time} onChange={handleInputChange} />
+      </label>
+      <label >
+        Indulási idő:
+        <input type="time" name="start" value={formData.start} onChange={handleInputChange} />
       </label>
       <button className='m-5' type="submit">Járat Hozzáadása</button>
     </form>
