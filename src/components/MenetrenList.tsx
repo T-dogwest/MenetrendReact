@@ -5,7 +5,7 @@ interface Menetrend {
   from: string;
   to: string;
   time: string;
-  start: string; // Add the start field to Menetrend interface
+  start: string; 
 }
 
 interface MenetrenListProps {
@@ -23,7 +23,7 @@ const MenetrenList: React.FC<MenetrenListProps> = ({ reload }) => {
           throw new Error('Failed to fetch menetrend');
         }
         const data: Menetrend[] = await response.json();
-        // Sort the data by the 'start' field in ascending order
+       
         data.sort((a, b) => (a.start > b.start ? 1 : -1));
         setMenetrend(data); 
       } catch (error) {
