@@ -60,7 +60,7 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <label className='m-5'>
         Honnan:
         <select name="from" value={formData.from} onChange={handleSelectChange}>
           <option value=""/>
@@ -76,11 +76,11 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
         Mennyi idő:
         <input type="time" name="time" value={formData.time} onChange={handleInputChange} />
       </label>
-      <label >
+      <label className='m-5'>
         Indulási idő:
         <input type="time" name="start" value={formData.start} onChange={handleInputChange} />
       </label>
-      <button className='m-5' type="submit">Járat Hozzáadása</button>
+      <button  type="submit">Járat Hozzáadása</button>
     </form>
   );
 };
