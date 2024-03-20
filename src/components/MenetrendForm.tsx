@@ -16,7 +16,7 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
     from: '',
     to: '',
     time: '',
-    start: '' // Initialize the new field
+    start: '' 
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,9 +33,9 @@ const MenetrendForm: React.FC<MenetrendFormProps> = ({ onReload }) => {
         console.error('Error adding new schedule:', response.statusText);
         return;
       }
-      // If successful, reload the menetrend list
+     
       onReload();
-      // Clear form data
+      
       setFormData({ from: '', to: '', time: '', start: '' });
     } catch (error) {
       console.error('Error adding new schedule:', error);
