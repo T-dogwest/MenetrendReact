@@ -40,7 +40,7 @@ const MenetrenList: React.FC<MenetrenListProps> = ({ reload }) => {
       <ul>
         {menetrend.map(schedule => (
           <li key={schedule.id}>
-            {schedule.from} - {schedule.to}: Menetidő {schedule.time}, Indulási idő {schedule.start}
+            {schedule.from} - {schedule.to}: Menetidő :{schedule.time}, Indulási idő: {schedule.start}
           </li>
         ))}
       </ul>
